@@ -1,6 +1,20 @@
 <?php
 session_start();
-include('../config/conexion.php');
+
+// Función para obtener la conexión a la base de datos
+function get_connect() {
+    $conn = mysqli_connect("sql110.byethost8.com", "b8_37147179", "Mysthic2", "b8_37147179_entretejas");
+
+    // Verificar la conexión
+    if ($conn === false) {
+        die("ERROR: No se pudo conectar. " . mysqli_connect_error());
+    }
+
+    return $conn; // Retornar la conexión
+}
+
+// Obtener la conexión una sola vez
+$conn = get_connect();
 
 // Verificar que el usuario es un administrador
 if ($_SESSION['rol'] != 'administrador') {
@@ -103,8 +117,8 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>Administrar Usuarios</title>
-    <link id="favicon" rel="icon" href="../Assets/Logo/logoE.png" type="image/png">
     <link rel="stylesheet" href="../Assets/css/administrarAdmin.css">
+    <link id="favicon" rel="icon" href="../Assets/Logo/logoE.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
@@ -118,13 +132,16 @@ $conn->close();
 <body>
     <div class="container">
         <h2 class="text-white">Administrar Usuarios</h2>   
+
+        <!-- Contenedor para alinear los botones -->
+    <div class="d-flex justify-content-between mb-3">
+        <!-- Botón para imprimir reporte -->
+        <a href="ReporteUsuarios.php" class="btn btn-primary">Imprimir Reporte</a>
+
+        <!-- Botón para agregar administrador -->
+        <button class="btn btn-success" data-toggle="modal" data-target="#modalAgregarUsuario">Agregar Usuario</button>
+    </div>          
         
-        <!-- Botón para abrir el modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregarUsuario">
-            Agregar Usuario
-        </button>
-        <br>
-        <br>
         <?php if ($result->num_rows > 0): ?>
             <table id="users-table" class="table table-bordered menu-item">
                 <thead>
@@ -216,7 +233,11 @@ $conn->close();
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalAgregarUsuarioLabel">Agregar Nuevo Usuario</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Cerrar">&times;</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                        <span aria-hidden="true">&times;</span>
+
+                    </button>
                     </div>
                     <div class="modal-body">
                         <form method="POST" action="">
@@ -295,27 +316,7 @@ $conn->close();
                 }
             });
         });
-
-        // Seleccionar el botón y el body
-        const themeToggleBtn = document.getElementById('hide-checkbox');
-        const body = document.body;
-
-        // Evento de clic para alternar entre los modos
-        themeToggleBtn.addEventListener('click', () => {
-            // Alternar la clase de modo oscuro/claro
-            if (body.classList.contains('dark-mode')) {
-                body.classList.replace('dark-mode', 'light-mode');
-                themeToggleBtn.textContent = 'Cambiar a Modo Oscuro';
-                themeToggleBtn.classList.replace('btn-light', 'btn-dark');
-            } else {
-                body.classList.replace('light-mode', 'dark-mode');
-                themeToggleBtn.textContent = 'Cambiar a Modo Claro';
-                themeToggleBtn.classList.replace('btn-dark', 'btn-light');
-            }
-        });
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-

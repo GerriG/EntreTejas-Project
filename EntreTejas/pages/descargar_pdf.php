@@ -1,12 +1,22 @@
 <?php
-//Configurar zona horaria
+
+// Configurar zona horaria
 date_default_timezone_set('America/Mexico_City');
 
 // Suponiendo que el ID del pedido está disponible en la URL
 $idPedido = $_GET['idPedido'];
 
-// Incluir la conexión a la base de datos
-require_once '../config/conexion.php';
+// Función para obtener la conexión a la base de datos
+function get_connect() {
+    $conn = mysqli_connect("sql110.byethost8.com", "b8_37147179", "Mysthic2", "b8_37147179_entretejas");
+
+    // Verificar la conexión
+    if ($conn === false) {
+        die("ERROR: No se pudo conectar. " . mysqli_connect_error());
+    }
+
+    return $conn; // Retornar la conexión
+}
 
 // Consultar los detalles del pedido y el nombre de usuario
 $query = "
@@ -16,6 +26,7 @@ $query = "
     WHERE p.id = ?
 ";
 
+$conn = get_connect();
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $idPedido);
 $stmt->execute();
@@ -39,7 +50,7 @@ if ($result->num_rows > 0) {
 require('../fpdf/fpdf.php');
 
 // Instanciar FPDF
-$pdf = new FPDF('P', 'mm', 'A4'); // 'P' para vertical, 'mm' para milímetros, 'A4' para tamaño carta
+$pdf = new FPDF('P', 'mm', 'A4');
 $pdf->AddPage();
 
 // Agregar un logo (opcional)
@@ -73,9 +84,6 @@ $pdf->SetFont('Arial', '', 10);
 // Crear una tabla para los productos
 $pdf->SetFillColor(220, 220, 220); // Color de fondo para las celdas de la tabla
 
-// Crear una tabla para los productos
-$pdf->SetFillColor(220, 220, 220); // Color de fondo para las celdas de la tabla
-
 // Cabecera de la tabla
 $pdf->Cell(45, 10, 'Producto', 1, 0, 'C', true);
 $pdf->Cell(30, 10, 'Cantidad', 1, 0, 'C', true);
@@ -98,6 +106,7 @@ foreach ($productos as $producto) {
         UNION 
         SELECT imagen FROM postres WHERE nombre = ? 
     ";
+
     $stmt_imagen = $conn->prepare($query_imagen);
     $stmt_imagen->bind_param("sss", $nombre, $nombre, $nombre);
     $stmt_imagen->execute();
@@ -155,22 +164,14 @@ foreach ($productos as $producto) {
     }
 }
 
-
-// Total
+// Resumen del pedido
 $pdf->Ln(10);
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(150, 10, 'Total: ', 0, 0, 'R');
-$pdf->Cell(40, 10, '$' . number_format($total, 2), 0, 1, 'C');
+$pdf->Cell(100, 10, 'Total: $' . number_format($total, 2), 0, 1);
 
-// Pie de página con información de contacto
-$pdf->Ln(15);
-$pdf->SetFont('Arial', 'I', 8);
-$pdf->Cell(200, 10, 'Gracias por tu compra. Si tienes alguna pregunta, contactanos al: contacto@entretejas.com', 0, 1, 'C');
+// Cerrar la conexión
+$conn->close();
 
-// Salida del PDF
-$pdf->Output('D', 'Factura_pedido_' . $idPedido . '.pdf');
+// Salida del PDF (forzar descarga)
+$pdf->Output('D', 'factura_pedido_' . $idPedido . '.pdf');
 ?>
-
-
-
-

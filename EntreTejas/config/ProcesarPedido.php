@@ -1,8 +1,20 @@
 <?php
-session_start();
-require_once '../config/conexion.php'; // Conexión a la base de datos
 
-//Configurar zona horaria
+session_start();
+
+// Función para obtener la conexión a la base de datos
+function get_connect() {
+    $conn = mysqli_connect("sql110.byethost8.com", "b8_37147179", "Mysthic2", "b8_37147179_entretejas");
+
+    // Verificar la conexión
+    if ($conn === false) {
+        die("ERROR: No se pudo conectar. " . mysqli_connect_error());
+    }
+
+    return $conn; // Retornar la conexión
+}
+
+// Configurar zona horaria
 date_default_timezone_set('America/Mexico_City');
 
 // Verificar si el usuario está logueado
@@ -16,6 +28,7 @@ if (!isset($_SESSION['user'])) {
 $idUsuario = $_SESSION['idUsuario'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     // Obtener los productos enviados en el formulario (como JSON)
     $productos = isset($_POST['productos']) ? json_decode($_POST['productos'], true) : [];
     $fechaHoraPedido = date("Y-m-d H:i:s");
@@ -50,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 // Almacenar el producto seleccionado en el array
                 $productosSeleccionados[] = [
-                    'nombre' => htmlspecialchars($producto['nombre']),
+                    'nombre' => htmlspecialchars($producto['nombre']), // Sanitización
                     'precio' => $precio,
                     'cantidad' => $cantidad,
                     'subtotal' => $subtotal
@@ -71,22 +84,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Insertar el pedido en la base de datos
     $queryPedido = "INSERT INTO pedidos (idUsuario, productos, total, metodo_pago, ubicacion, fechaHoraPedido, fechaHoraEntrega) 
                     VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    $conn = get_connect();
     $stmtPedido = $conn->prepare($queryPedido);
-    $stmtPedido->bind_param("isdssss", $idUsuario, $productos_json, $total, $metodo_pago, $ubicacion, $fechaHoraPedido, $fechaHoraEntrega);
 
-    // Ejecutar la consulta y verificar si fue exitosa
-    if ($stmtPedido->execute()) {
-        // Obtener el ID del pedido recién insertado
-        $idPedido = $stmtPedido->insert_id;
+    if ($stmtPedido) {
+        $stmtPedido->bind_param("isdssss", $idUsuario, $productos_json, $total, $metodo_pago, $ubicacion, $fechaHoraPedido, $fechaHoraEntrega);
 
-        // Redirigir a la página de pedido completado pasando el ID del pedido
-        header("Location: ../pages/pedido_completado.php?idPedido=" . $idPedido);
-        exit();
+        // Ejecutar la consulta y verificar si fue exitosa
+        if ($stmtPedido->execute()) {
+            // Obtener el ID del pedido recién insertado
+            $idPedido = $stmtPedido->insert_id;
+
+            // Redirigir a la página de pedido completado pasando el ID del pedido
+            header("Location: ../pages/pedido_completado.php?idPedido=" . $idPedido);
+            exit();
+        } else {
+            echo "Error al procesar el pedido: " . $stmtPedido->error;
+        }
+
+        // Cerrar el statement
+        $stmtPedido->close();
     } else {
-        echo "Error al procesar el pedido: " . $stmtPedido->error;
+        echo "Error en la preparación de la consulta.";
     }
+
+    // Cerrar la conexión
+    $conn->close();
+
 } else {
     echo "Acceso no autorizado.";
 }
-
 ?>
