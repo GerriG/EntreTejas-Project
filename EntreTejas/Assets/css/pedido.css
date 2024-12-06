@@ -1,0 +1,46 @@
+/* Estilo para efecto acrílico */
+.section1 {
+    background: rgba(255, 255, 255, 0.25); /* Fondo blanco semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    border-radius: 50px; /* Bordes redondeados */
+    padding: 40px; /* Espaciado interno */
+    margin-top: 100px; /* Margen superior */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra */    
+    margin-left: auto; /* Centrar horizontalmente */
+    margin-right: auto; /* Centrar horizontalmente */
+    margin-top: 5%;
+    margin-bottom: auto;
+    font-size: 1.3rem; /* Aumentar el tamaño de fuente */
+}
+
+.icon {
+    width: 200px; /* Ancho deseado */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Asegura que se trate como un bloque */
+    margin: 20px auto; /* Centra el ícono horizontalmente con un margen */
+    transition: transform 0.3s; /* Añade una transición suave */
+}
+
+.icon:hover {
+    transform: scale(1.1); /* Escala un poco la imagen al pasar el mouse */
+}
+
+.delivery {
+    background-image: url("../Fondos/Lista.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; /* Cubrir completamente el fondo */
+    background-color: black;
+}
+
+.order-details {
+    margin-bottom: 20px; /* Espacio entre detalles del pedido */
+}
+
+.confirmation-message {
+    font-size: 1.5rem; /* Aumentar el tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    color: #28a745; /* Color verde para el mensaje de confirmación */
+    text-shadow: 0 0 5px white, 0 0 10px white; /* Efecto de iluminación blanca */
+}
+

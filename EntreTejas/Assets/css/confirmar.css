@@ -1,0 +1,420 @@
+body.section1 {
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef); /* Fondo degradado */
+    background-image: url("../Fondos/Lista.jpg");
+    display: flex; /* Activar Flexbox */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100vh; /* Tomar toda la altura de la ventana */
+    margin-top: -25px; /* Eliminar márgenes por defecto */
+}
+
+/* From Uiverse.io by anniekoop */
+.order-card {
+    width: fit-content;
+    background-color: #f2f3f7;
+    border-radius: 2.00em;
+    cursor: pointer;
+    transition: ease 0.2s;
+    box-shadow: 1em 1em 1em #d8dae0b1, -0.75em -0.75em 1em #ffffff;
+    border: 1.5px solid #f2f3f7;
+    margin: 0 auto; /* Centrar el contenedor en su padre */
+  }  
+  
+  .order-container {
+    margin-top: 0.50em;
+    margin-bottom: 0.50em;
+    margin-left: 1.375em;
+    margin-right: 2em;
+    display: flex;
+    flex-direction: row;
+    gap: 0.75em;
+  }
+  
+  .order-status-ind {
+    width: 0.625em;
+    height: 0.625em;
+    background-color: #ff0000;
+    margin: 0.375em 0;
+    border-radius: 0.5em;
+  }
+  
+  .order-text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    color: #333;
+  }
+  
+  .order-time {
+    font-size: 0.875em;
+    color: #777;
+  }
+  
+  .order-text-link {
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .order-button-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+  }
+  
+  .order-secondary-cta {
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #666;
+    cursor: pointer;
+  }
+  
+  .order-primary-cta {
+    font-size: 15px;
+    background-color: transparent;
+    font-weight: 600;
+    color: #1677ff;
+    border: none;
+    border-radius: 1.5em;
+    cursor: pointer;
+  }
+  
+  .order-button:hover {
+    text-decoration: underline;
+  }
+  
+  .order-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875em;
+  }
+  
+
+.container {
+    background: rgba(255, 255, 255, 0.26); /* Fondo blanco semitransparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    border-radius: 50px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    padding: 20px; /* Espaciado interno */
+    padding-top: 10px; /* Espaciado interno */
+    width: 90%; /* Ancho máximo del contenedor */
+    max-width: 600px; /* Ancho máximo */   
+}
+
+h2 {
+    color: #343a40; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 30px;
+}
+
+.lite {    
+    margin-top: -20px;
+}
+
+h4{
+    color: #343a40; /* Color del texto */
+    text-align: right; /* Centrar el texto */
+}
+
+.order-summary {
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.payment-method, .delivery-location, .order-confirmation {
+    margin: 20px 0; /* Margen superior e inferior */
+}
+
+.radio-inputs {
+    display: flex; /* Activar Flexbox */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    max-width: 350px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor en su padre */
+    -webkit-user-select: none; /* Deshabilitar selección de texto */
+    -moz-user-select: none; /* Deshabilitar selección de texto */
+    -ms-user-select: none; /* Deshabilitar selección de texto */
+    user-select: none; /* Deshabilitar selección de texto */
+}
+  
+  .radio-inputs > * {
+    margin: 6px;
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+  
+  .radio-input:checked + .radio-tile {
+    border-color: #2260ff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: #2260ff;
+  }
+  
+  .radio-input:checked + .radio-tile:before {
+    transform: scale(1);
+    opacity: 1;
+    background-color: #2260ff;
+    border-color: #2260ff;
+  }
+  
+  .radio-input:checked + .radio-tile .radio-icon svg {
+    fill: #2260ff;
+  }
+  
+  .radio-input:checked + .radio-tile .radio-label {
+    color: #2260ff;
+  }
+  
+  .radio-input:focus + .radio-tile {
+    border-color: #2260ff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+  }
+  
+  .radio-input:focus + .radio-tile:before {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .radio-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    min-height: 80px;
+    border-radius: 0.5rem;
+    border: 2px solid #b5bfd9;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.15s ease;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .radio-tile:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border: 2px solid #b5bfd9;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 0.25rem;
+    left: 0.25rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.25s ease;
+  }
+  
+  .radio-tile:hover {
+    border-color: #2260ff;
+  }
+  
+  .radio-tile:hover:before {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .radio-icon svg {
+    width: 2rem;
+    height: 2rem;
+    fill: #494949;
+  }
+  
+  .radio-label {
+    fill: #494949;
+    transition: 0.375s ease;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  .radio-input {
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+/* Estilos para checkbox de confirmación (sin cambios) */
+.order-confirmation input[type="checkbox"] {
+    margin-right: 5px; /* Espacio entre el checkbox y la etiqueta */
+}
+
+.order-confirmation label {
+    font-size: 1rem; /* Tamaño de fuente */
+    color: #343a40; /* Color del texto */
+}
+
+
+/* From Uiverse.io by Praashoo7 */ 
+.input {
+    border: none;
+    outline: none;
+    min-width: 560px;
+    border-radius: 15px;
+    padding: 1em;
+    background-color: #ffffff9f;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+    transition: 300ms ease-in-out;
+  }
+  
+  .input:focus {
+    background-color: white;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #969696,
+               -13px -13px 100px #ffffff;
+  }
+
+.btn {
+    background-color: #007bff; /* Color del botón */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto del botón */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 50px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */    
+    max-width: 200px;
+    margin: auto; /* Centrar el botón horizontalmente */
+    display: block; /* Asegúrate de que el botón sea un bloque */
+    margin-top: 20px;
+}
+
+.checkbox-wrapper-10 .tgl {
+    display: none;
+  }
+  
+  .checkbox-wrapper-10 .tgl,
+    .checkbox-wrapper-10 .tgl:after,
+    .checkbox-wrapper-10 .tgl:before,
+    .checkbox-wrapper-10 .tgl *,
+    .checkbox-wrapper-10 .tgl *:after,
+    .checkbox-wrapper-10 .tgl *:before,
+    .checkbox-wrapper-10 .tgl + .tgl-btn {
+    box-sizing: border-box;
+  }
+  
+  .checkbox-wrapper-10 .tgl::-moz-selection,
+    .checkbox-wrapper-10 .tgl:after::-moz-selection,
+    .checkbox-wrapper-10 .tgl:before::-moz-selection,
+    .checkbox-wrapper-10 .tgl *::-moz-selection,
+    .checkbox-wrapper-10 .tgl *:after::-moz-selection,
+    .checkbox-wrapper-10 .tgl *:before::-moz-selection,
+    .checkbox-wrapper-10 .tgl + .tgl-btn::-moz-selection,
+    .checkbox-wrapper-10 .tgl::selection,
+    .checkbox-wrapper-10 .tgl:after::selection,
+    .checkbox-wrapper-10 .tgl:before::selection,
+    .checkbox-wrapper-10 .tgl *::selection,
+    .checkbox-wrapper-10 .tgl *:after::selection,
+    .checkbox-wrapper-10 .tgl *:before::selection,
+    .checkbox-wrapper-10 .tgl + .tgl-btn::selection {
+    background: none;
+  }
+  
+  .checkbox-wrapper-10 .tgl + .tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .checkbox-wrapper-10 .tgl + .tgl-btn:after,
+    .checkbox-wrapper-10 .tgl + .tgl-btn:before {
+    position: relative;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+  }
+  
+  .checkbox-wrapper-10 .tgl + .tgl-btn:after {
+    left: 0;
+  }
+  
+  .checkbox-wrapper-10 .tgl + .tgl-btn:before {
+    display: none;
+  }
+  
+  .checkbox-wrapper-10 .tgl:checked + .tgl-btn:after {
+    left: 50%;
+  }
+  
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn {
+    padding: 2px;
+    transition: all 0.2s ease;
+    font-family: sans-serif;
+    perspective: 100px;
+  }
+  
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn:after,
+    .checkbox-wrapper-10 .tgl-flip + .tgl-btn:before {
+    display: inline-block;
+    transition: all 0.4s ease;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    line-height: 2em;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 4px;
+  }
+  
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn:after {
+    content: attr(data-tg-on);
+    background: #02C66F;
+    transform: rotateY(-180deg);
+  }
+  
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn:before {
+    background: #FF3A19;
+    content: attr(data-tg-off);
+  }
+  
+  .checkbox-wrapper-10 .tgl-flip + .tgl-btn:active:before {
+    transform: rotateY(-20deg);
+  }
+  
+  .checkbox-wrapper-10 .tgl-flip:checked + .tgl-btn:before {
+    transform: rotateY(180deg);
+  }
+  
+  .checkbox-wrapper-10 .tgl-flip:checked + .tgl-btn:after {
+    transform: rotateY(0);
+    left: 0;
+    background: #7FC6A6;
+  }
+  
+  .checkbox-wrapper-10 {
+    display: flex;               /* Usa flexbox para alineación horizontal */
+    align-items: left;        /* Alinea los elementos verticalmente en el centro */
+    justify-content: left;     /* Centra horizontalmente el contenido */
+}
+
+.checkbox-text {
+    margin-left: 10px;          /* Espacio entre el checkbox y el texto */
+    color: #343a40;             /* Color del texto */
+    font-size: 1rem;            /* Tamaño del texto */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Color del botón al pasar el mouse */
+}
+
+label {
+    margin-left: 5px; /* Espacio entre el radio y la etiqueta */
+}

@@ -1,0 +1,550 @@
+
+body.dark-mode {
+    background-color: #212529 !important; /* Fondo oscuro */
+    color: #f8f9fa !important; /* Texto claro */
+    transition: background-color 1s, color 1s;
+}
+
+body {
+    background-color: #ffffff;
+    color: #000000 !important;
+    transition: background-color 1s, color 1s;
+}
+
+/* Estilos comunes */
+.logo {
+    height: 50px;
+    transition: filter 1s ease;
+}
+
+/* Estilo para el modo claro */
+@media (prefers-color-scheme: light) {
+    .logo {        
+        filter: brightness(1); /* Mantener el brillo original de la imagen */
+    }
+}
+
+/* Estilo para el modo oscuro */
+@media (prefers-color-scheme: dark) {
+    .logo {        
+        filter: brightness(0) invert(1); /* Invertir colores de la imagen para adaptarla al modo oscuro */
+    }
+}
+
+/* Estilos adicionales para el modo manual (a través de JavaScript) */
+body.light-mode .logo {
+    filter: brightness(1); /* Brillo original para el modo claro */
+}
+
+body.dark-mode .logo {
+    filter: brightness(0) invert(1); /* Invertir colores para el modo oscuro */
+}
+
+
+.dark-mode .admin-container
+{
+    background-color: #343a40; /* Fondo más claro para el contenedor */
+    max-width: 900px;
+    margin: 50px auto; 
+    padding: 30px;    
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: fadeInFromTop 1s ease-in-out; /* Animación de entrada combinada */
+}
+
+body.light-mode .menu-item a {
+    color: #000000;
+    background-color: transparent; /* Color fondo claro */
+    transition: color 1s, background-color 1s;
+}
+
+body.dark-mode .menu-item a {
+    color: #ffffff;
+    background-color: transparent; /* Fondo oscuro */
+}
+
+.admin-container {
+    max-width: 900px;
+    margin: 50px auto; 
+    padding: 30px;    
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: fadeInFromTop 1s ease-in-out; /* Animación de entrada combinada */
+}
+
+/* Animación de entrada desde arriba */
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-300px); /* Inicia desde más arriba */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina en su posición original */
+    }
+}
+
+/* Animaciones de opacidad para pedidos */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.33;
+    }
+    50% {
+        opacity: 0.66;
+    }
+    75% {
+        opacity: 0.85;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.85;
+    }
+    50% {
+        opacity: 0.66;
+    }
+    75% {
+        opacity: 0.33;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.dashboard-header span {
+    font-size: 2rem;
+    color: #adb5bd;
+}
+
+.menu-section {
+    margin-bottom: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    transition: all 0.3s ease !important; /* Animaciones suaves */
+}
+
+.menu-item:hover {
+    transform: scale(1.1); /* Crece al pasar el cursor */
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #f8f9fa;
+    transition: color 0.2s ease;
+    flex: 1; /* Ocupar toda la línea */
+}
+
+.menu-item a:hover {
+    color: #0d6efd; /* Cambia a azul al pasar el cursor */
+}
+
+.menu-icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.logout-container button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.3s ease;
+}
+
+.logout-container button:hover {
+    background-color: #c82333;
+    transform: scale(1.1); /* Crece al pasar el cursor */
+}
+
+/* Estilo para el resumen del pedido */
+.order-card {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #495057;
+    border-radius: 20px;
+    transition: background-color 1s, color 1s;
+}
+
+/* Modo claro para .order-card */
+body.light-mode .order-card {
+    background-color: #f8f9fa; /* Fondo claro */
+    color: #000000; /* Texto oscuro */
+}
+
+/* Modo claro para la tabla */
+body.light-mode table {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto oscuro */
+    border-color: #cccccc;
+}
+
+body.light-mode table th, 
+body.light-mode table td {
+    border-color: #cccccc;
+    color: black;
+}
+
+.order-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.order-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.order-card h4 {
+    font-size: 1.2rem;
+    color: #ffc107;
+}
+
+/* Transiciones de apertura y cierre de secciones */
+.order-section {
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.order-section.open {
+    max-height: 5000px;
+    padding: 10px;
+    opacity: 1;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.order-section.close {
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+    animation: fadeOut 0.6s ease-out forwards;
+}
+
+#table-custom {
+    border-radius: 15px !important;
+    border: 1px solid #ccc !important;
+    padding: 10px !important;
+    /* Otros estilos específicos de la tabla pueden ser añadidos aquí */
+}
+
+/* Modos Claro / Oscuro Toggle */
+@import url('https://fonts.googleapis.com/css?family=Nunito:800i&display=swap');
+
+#hide-checkbox {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.toggle {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  background: #211042;
+  border-radius: 50px;
+  transition: 500ms;
+  overflow: hidden;
+}
+
+.toggle-button {
+  position: absolute;
+  display: inline-block;
+  top: 7px;
+  left: 6px;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: #FAEAF1;
+  overflow: hidden;
+  box-shadow: 0 0 35px 4px rgba(255, 255, 255);
+  transition: all 500ms ease-out;
+}
+
+.crater {
+  position: absolute;
+  display: inline-block;
+  background: #FAEAF1;
+  border-radius: 50%;
+  transition: 500ms;
+}
+
+.crater-1 {
+  background: #FFFFF9;
+  width: 86px;
+  height: 86px;
+  left: 10px;
+  bottom: 10px;
+}
+
+.crater-2 {
+  width: 20px;
+  height: 20px;
+  top: -7px;
+  left: 44px;
+}
+
+.crater-3 {
+  width: 16px;
+  height: 16px;
+  top: 20px;
+  right: -4px;
+}
+
+.crater-4 {
+  width: 10px;
+  height: 10px;
+  top: 24px;
+  left: 30px;
+}
+
+.crater-5 {
+  width: 15px;
+  height: 15px;
+  top: 40px;
+  left: 48px;
+}
+
+.crater-6 {
+  width: 10px;
+  height: 10px;
+  top: 48px;
+  left: 20px;
+}
+
+.crater-7 {
+  width: 12px;
+  height: 12px;
+  bottom: 5px;
+  left: 35px;
+}
+
+.star {
+  position: absolute;
+  display: inline-block;
+  border-radius: 50%;
+  background: #FFF;
+  box-shadow: 1px 0 2px 2px rgba(255, 255, 255);
+}
+
+.star-1 {
+  width: 6px;
+  height: 6px;
+  right: 90px;
+  bottom: 40px;
+}
+
+.star-2 {
+  width: 8px;
+  height: 8px;
+  right: 70px;
+  top: 10px;
+}
+
+.star-3 {
+  width: 5px;
+  height: 5px;
+  right: 60px;
+  bottom: 15px;
+}
+
+.star-4 {
+  width: 3px;
+  height: 3px;
+  right: 40px;
+  bottom: 50px;
+}
+
+.star-5 {
+  width: 4px;
+  height: 4px;
+  right: 10px;
+  bottom: 35px;
+}
+
+.star-6, .star-7, .star-8 {
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  box-shadow: 5px 0px 4px 1px #FFF;
+  animation-name: travel;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+.star-6 {
+  right: 30px;
+  bottom: 30px;
+  animation-delay: -2s;
+}
+
+.star-7 {
+  right: 50px;
+  bottom: 60px;
+}
+
+.star-8 {
+  right: 90px;
+  top: 10px;
+  animation-delay: -4s;
+}
+
+@keyframes travel {
+  0% {
+    transform: rotate(-45deg) translateX(70px);
+  }
+
+  50% {
+    transform: rotate(-45deg) translateX(-20px);
+    box-shadow: 5px 0px 6px 1px #FFF;
+  }
+
+  100% {
+    transform: rotate(-45deg) translateX(-30px);
+    width: 2px;
+    height: 2px;
+    opacity: 0;
+    box-shadow: none;
+  }
+}
+
+#hide-checkbox:checked + .toggle {
+  background: #24D7F7;
+}
+
+#hide-checkbox:checked + .toggle .toggle-button {
+  background: #F7FFFF;
+  transform: translateX(102px);
+  box-shadow: 0 0 35px 5px rgba(255, 255, 255);
+}
+
+#hide-checkbox:checked + .toggle .toggle-button .crater {
+  transform: rotate(-45deg) translateX(70px);
+}
+
+#hide-checkbox:checked + .toggle .star {
+  animation: move 2s infinite;
+  transform: none;
+  box-shadow: none;
+}
+
+#hide-checkbox:checked + .toggle .star-1 {
+  width: 40px;
+  height: 10px;
+  border-radius: 10px;
+  background: #FFF;
+  left: 20px;
+  top: 25px;
+  box-shadow: none;
+}
+
+#hide-checkbox:checked + .toggle .star-2 {
+  width: 12px;
+  height: 12px;
+  background: #FFF;
+  left: 26px;
+  top: 23px;
+  box-shadow: -1px 0 2px 0 rgba(0, 0 , 0, 0.1);
+}
+
+#hide-checkbox:checked + .toggle .star-3 {
+  width: 16px;
+  height: 16px;
+  background: #FFF;
+  left: 35px;
+  top: 19px;
+  box-shadow: -1px 0 2px 0 rgba(0, 0 , 0, 0.1);
+}
+
+#hide-checkbox:checked + .toggle .star-4 {
+  width: 14px;
+  height: 14px;
+  background: #FFF;
+  left: 46px;
+  top: 21px;
+  box-shadow: -1px 0 2px 0 rgba(0, 0 , 0, 0.1);
+}
+
+#hide-checkbox:checked + .toggle .star-5 {
+  width: 60px;
+  height: 15px;
+  border-radius: 15px;
+  background: #FFF;
+  left: 30px;
+  bottom: 20px;
+  box-shadow: none;
+}
+
+#hide-checkbox:checked + .toggle .star-6 {
+  width: 18px;
+  height: 18px;
+  background: #FFF;
+  border-radius: 50%;
+  left: 38px;
+  bottom: 20px;
+  box-shadow: -1px 0 2px 0 rgba(0, 0 , 0, 0.1);
+}
+
+#hide-checkbox:checked + .toggle .star-7 {
+  width: 24px;
+  height: 24px;
+  background: #FFF;
+  border-radius: 50%;
+  left: 52px;
+  bottom: 20px;
+  box-shadow: -1px 0 2px 0 rgba(0, 0 , 0, 0.1);
+}
+
+#hide-checkbox:checked + .toggle .star-8 {
+  width: 21px;
+  height: 21px;
+  background: #FFF;
+  border-radius: 50%;
+  left: 70px;
+  top: 59px;
+  box-shadow: -1px 0 2px 0 rgba(0, 0 , 0, 0.1);
+}
+
+@keyframes move {
+  0% {
+    transform: none;
+  }
+  
+  25% {
+    transform: translateX(2px);
+  }
+  
+  100% {
+    transform: translateX(-2px);
+  }
+}

@@ -1,0 +1,156 @@
+body {
+    background-color: #343a40 !important; /* Fondo oscuro */
+    color: #ffffff !important; /* Texto blanco */
+    margin: 0 !important;
+}
+.admin-container {
+    max-width: 93% !important;
+    margin: 20px auto !important;
+    padding: 15px !important;
+    background-color: #495057 !important;
+    border-radius: 30px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
+    animation: fadeInFromTop 1s ease-in-out !important; /* Animación de entrada combinada */
+}
+
+/* Animación de entrada desde arriba */
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-300px); /* Inicia desde más arriba */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina en su posición original */
+    }
+}
+
+.btn {   
+    border-radius: 20px !important;         
+    transition: all 0.3s ease !important; /* Animaciones suaves */
+}
+
+.btn:hover {
+    transform: scale(1.1); /* Crece al pasar el cursor */
+}
+
+.btn a {
+    text-decoration: none;
+    color: #f8f9fa;
+    transition: color 0.2s ease;
+    flex: 1; /* Ocupar toda la línea */
+}
+
+.btn a:hover {
+    color: #0d6efd; /* Cambia a azul al pasar el cursor */
+}
+
+h1 {
+    color: #ffffff !important;
+    text-align: center !important;
+}
+table.dataTable {
+    width: 100% !important;
+    border-radius: 20px !important;
+    margin-top: 20px !important;
+    border-collapse: collapse !important;
+    background-color: #3e4349 !important; /* Fondo oscuro */
+    color: #ffffff !important; /* Texto blanco */
+    border-radius: 20px !important;
+    overflow: hidden !important;
+}
+
+table.dataTable thead th {
+    background-color: #007bff; /* Fondo azul */
+    color: #ffffff; /* Texto blanco */
+    font-weight: bold;
+    text-align: center; /* Centrar texto */
+    border-bottom: 1px solid #565a5e;
+    padding: 10px;
+    text-align: center !important; /* Centra el texto horizontalmente */
+    vertical-align: middle !important; /* Centra el texto verticalmente */
+}
+
+table.dataTable tbody td {
+    text-align: center; /* Centrar texto */
+    padding: 10px;
+    border-bottom: 1px solid #565a5e;
+    text-align: center !important; /* Centra el texto horizontalmente */
+    vertical-align: middle !important; /* Centra el texto verticalmente */
+}
+
+table.dataTable tbody tr:nth-child(even) {
+    background-color: #495057; /* Fila alterna */
+    border-radius: 30px !important;
+}
+
+table.dataTable tbody tr:hover {
+    border-radius: 30px !important;
+    background-color: #6c757d; /* Color al pasar el ratón */
+}
+
+.dataTables_wrapper {
+    color: #ffffff; /* Texto blanco */
+}
+
+.dataTables_length select
+{
+    color: #ffffff !important; /* Texto blanco en los controles */
+    border-radius: 20px !important;
+    background-color: #343a40; /* Fondo oscuro para los controles */
+    border: 1px solid #565a5e; /* Border opcional, puedes ajustarlo a tu gusto */
+}
+
+/* Estilo para las opciones dentro del selector */
+.dataTables_length select option {
+    color: #000000; /* Texto negro */
+    background-color: #ffffff; /* Fondo blanco para las opciones */
+}
+
+.dataTables_length select, .dataTables_filter input {
+    border-radius: 20px !important;
+    color: #000; /* Texto negro */
+    background-color: #ffffff; /* Fondo blanco */
+}
+
+.dataTables_paginate .paginate_button {
+    border-radius: 20px !important;
+    background-color: #007bff;
+    color: #fff !important;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 2px;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    border-radius: 20px !important;
+    background-color: #0056b3;
+}
+
+/* Estilo para las opciones dentro del selector */
+.dataTables_length select option {
+    color: #000000; /* Texto negro */
+    background-color: #ffffff; /* Fondo blanco para las opciones */
+}
+
+.btn-back:hover {
+    background-color: #0056b3; /* Fondo más oscuro al pasar el ratón */
+}
+
+.dataTables_wrapper {
+    color: #ffffff; /* Texto blanco para DataTables */
+}
+.dataTables_length select, .dataTables_filter input {
+    color: #000; /* Texto negro para controles */
+    background-color: #ffffff; /* Fondo blanco para controles */
+}
+.dataTables_paginate .paginate_button {
+    background-color: #007bff;
+    color: #fff !important;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 2px;
+}
+.dataTables_paginate .paginate_button:hover {
+    background-color: #0056b3;
+}

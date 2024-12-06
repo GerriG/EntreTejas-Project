@@ -1,0 +1,184 @@
+body {
+    padding: 20px;
+    background-color: #343a40 !important; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+.container {
+    max-width: 900px !important;
+    margin: auto !important; 
+    padding: 30px !important;
+    background-color: #343a40 !important; /* Fondo más claro para el contenedor */
+    border-radius: 30px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+    animation: fadeInFromTop 1s ease-in-out !important; /* Animación de entrada combinada */
+}
+
+/* Animación de entrada desde arriba */
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-300px); /* Inicia desde más arriba */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina en su posición original */
+    }
+}
+
+.btn {            
+    border-radius: 20px !important;  
+    transition: all 0.3s ease !important; /* Animaciones suaves */
+}
+
+.btn:hover {
+    border-radius: 20px !important;  
+    transform: scale(1.1); /* Crece al pasar el cursor */
+}
+
+.btn a {
+    text-decoration: none;
+    color: #f8f9fa;
+    border-radius: 20px !important;    
+    flex: 1; /* Ocupar toda la línea */
+    transition: color 0.2s ease;
+}
+
+.btn a:hover {
+    color: #0d6efd; /* Cambia a azul al pasar el cursor */
+    border-radius: 20px !important;  
+}
+
+.alert {
+    margin-bottom: 20px;
+    border-radius: 5px; /* Bordes redondeados para alertas */
+}
+.btn-warning {
+    background-color: #ffc107; /* Color del botón de actualizar */
+    border: none;
+    border-radius: 20px !important;  
+}
+.btn-warning:hover {
+    background-color: #e0a800; /* Color del botón al pasar el mouse */
+    border-radius: 20px !important;  
+}
+.btn-danger {
+    background-color: #dc3545; /* Color del botón de eliminar */
+    border: none;
+    border-radius: 20px !important;  
+}
+.btn-danger:hover {
+    background-color: #c82333; /* Color del botón al pasar el mouse */
+    border-radius: 20px !important;  
+}
+.btn-secondary {
+    background-color: #6c757d; /* Color del botón secundario */
+    border: none;
+    border-radius: 20px !important;  
+}
+.btn-secondary:hover {
+    background-color: #5a6268; /* Color del botón secundario al pasar el mouse */
+    border-radius: 20px !important;  
+}
+
+#admin-table th {
+    text-align: center; /* Centrado horizontal */
+    vertical-align: middle; /* Opcional: Centrado vertical */
+}
+
+table.dataTable {
+    width: 100% !important;
+    border-radius: 20px !important;
+    margin-top: 20px !important;
+    border-collapse: collapse !important;
+    background-color: #3e4349 !important; /* Fondo oscuro */
+    color: #ffffff !important; /* Texto blanco */
+    border-radius: 20px !important;
+    overflow: hidden !important;
+}
+
+table.dataTable thead th {
+    background-color: #007bff; /* Fondo azul */
+    color: #ffffff; /* Texto blanco */
+    font-weight: bold;
+    text-align: center; /* Centrar texto */
+    border-bottom: 1px solid #565a5e;    
+    text-align: center !important; /* Centra el texto horizontalmente */
+    vertical-align: middle !important; /* Centra el texto verticalmente */
+}
+
+table.dataTable tbody td {
+    text-align: center; /* Centrar texto */    
+    border-bottom: 1px solid #565a5e;
+    text-align: center !important; /* Centra el texto horizontalmente */
+    vertical-align: middle !important; /* Centra el texto verticalmente */
+}
+
+table.dataTable tbody tr:nth-child(even) {
+    background-color: #495057; /* Fila alterna */
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #6c757d; /* Color al pasar el ratón */
+}
+
+.dataTables_wrapper {
+    color: #ffffff; /* Texto blanco */
+}
+
+.dataTables_length select
+{
+    color: #ffffff !important; /* Texto blanco en los controles */
+    border-radius: 20px !important;
+    background-color: #343a40; /* Fondo oscuro para los controles */
+    border: 1px solid #565a5e; /* Border opcional, puedes ajustarlo a tu gusto */
+}
+
+/* Estilo para las opciones dentro del selector */
+.dataTables_length select option {
+    color: #000000; /* Texto negro */
+    background-color: #ffffff; /* Fondo blanco para las opciones */
+}
+
+.dataTables_length select, .dataTables_filter input {
+    border-radius: 20px !important;
+    color: #000; /* Texto negro */
+    background-color: #ffffff; /* Fondo blanco */
+}
+
+.dataTables_paginate .paginate_button {
+    border-radius: 20px !important;
+    background-color: #007bff;
+    color: #fff !important;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 2px;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    border-radius: 20px !important;
+    background-color: #0056b3;
+}
+
+.swal2-popup {
+    border-radius: 20px !important;
+}
+
+/* Estilo global para todos los botones de SweetAlert */
+.swal2-confirm, .swal2-cancel {
+    border-radius: 20px !important;
+}
+
+
+input.form-control {
+    border-radius: 20px !important;
+}
+
+.modal-content {
+    background-color: #495057 !important; /* Fondo oscuro del modal */
+    color: #ffffff !important; /* Color de texto claro en el modal */
+    border-radius: 20px !important;
+}
+.modal-header, .modal-footer {
+    border-color: #6c757d !important; /* Color de borde de la cabecera y pie del modal */
+    border-radius: 20px !important;
+}

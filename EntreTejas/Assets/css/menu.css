@@ -1,0 +1,104 @@
+* {
+    cursor: url(https://cdn.custom-cursor.com/db/9018/32/starter-pixel-ice-cursor.png), auto;
+}
+
+#g {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#a {
+    cursor: url(https://cdn.custom-cursor.com/db/9017/32/starter-pixel-ice-pointer.png), auto;
+}
+
+#AC2 {
+    cursor: url(https://cdn.custom-cursor.com/db/9017/32/starter-pixel-ice-pointer.png), auto;
+}
+
+#inlineRadio,
+#inlineRadio2,
+#inlineRadio3 {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#sombra3 {
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+#sombra2 {
+    text-shadow: 0 0 6px rgb(255, 255, 255);
+}
+
+#sombra5 {
+    text-shadow: 0 0 3px #039, 3px 3px 3px #F00, -3px -3px 3px #4AF;
+}
+
+.section0 {
+    background-image: url("../Fondos/Resta.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.section1 {
+    background-image: url("../Fondos/Bebidas.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.section2 {
+    background-image: url("../Fondos/Post.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.section3 {    
+    background-image: url("../Fondos/Menu.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; /* Asegura que la imagen cubra todo el área del elemento */
+    background-position: center center; /* Centra la imagen para que no se distorsione al cubrir el área */
+    height: 100vh; /* Establece la altura del contenedor al 100% de la vista */
+    width: 100%; /* Establece el ancho del contenedor al 100% del viewport */
+}
+
+.section4 {    
+    background-image: url("../Fondos/Todos.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; /* Asegura que la imagen cubra todo el área del elemento */
+    background-position: center center; /* Centra la imagen para que no se distorsione al cubrir el área */
+    height: 100%; /* Establece la altura del contenedor al 100% de la vista */
+    width: 100%; /* Establece el ancho del contenedor al 100% del viewport */
+}
+
+th, td {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.logout-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+}
+
+.logout-button button {
+    background-color: #dc3545; /* color rojo */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-button button:hover {
+    background-color: #c82333; /* color más oscuro al pasar el mouse */
+}
+
